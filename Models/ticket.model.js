@@ -41,27 +41,48 @@ Ticket.create =(newTicket , result)=>{
   })
 };
 Ticket.updateById = (ticketid, timing, result) => {
-  mysqlConnection.query(
-    "UPDATE tikcetinfo SET timing = ?  WHERE ticket_id = ?",
-    [timing, ticketid],
-    (err, res) => {
-      if (err) {
-        console.log("error: ", err);
-        result(null, err);
-        return;
+  ctquery='SELECT COUNT(*) AS ticketCount FROM tikcetinfo WHERE timing = ?';
+  mysqlConnection.query(ctquery,timing,(err,rows,fields)=>{
+    if(!err)
+    {
+      console.log(rows[0].ticketCount);
+      if(rows[0].ticketCount<20)
+      {
+        mysqlConnection.query(
+          "UPDATE tikcetinfo SET timing = ?  WHERE ticket_id = ?",
+          [timing, ticketid],
+          (err, res) => {
+            if (err) {
+              console.log("error: ", err);
+              result(null, err);
+              return;
+            }
+
+            if (res.affectedRows == 0) {
+              // not found Ticket with the id
+              result({ kind: "not_found" }, null);
+              return;
+            }
+
+
+            result(null, {Message:'Your ticket id '+ticketid+' timing is UPDATED',
+                          status:200});
+          }
+        );
+
       }
+      else {
+            result(null,{  Message:"Ticket Limit Reached! Please Select Another TimeSlot",
+              Status:200})
 
-      if (res.affectedRows == 0) {
-        // not found Ticket with the id
-        result({ kind: "not_found" }, null);
-        return;
       }
-
-
-      result(null, {Message:'Your ticket id '+ticketid+' timing is UPDATED',
-                    status:200});
     }
-  );
+    else {
+      console.log(err.message);
+      result(err,null);
+    }
+  })
+
 };
 Ticket.findByTiming=(timing,result)=>{
   mysqlConnection.query("SELECT ticket_id,user_name,phone_no,expired FROM tikcetinfo WHERE timing = ?",timing,(err,res)=>{
