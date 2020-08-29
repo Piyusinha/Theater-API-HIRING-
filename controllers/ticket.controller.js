@@ -43,3 +43,39 @@ exports.update = (req, res) => {
     }
   );
 };
+exports.findAllTicket=(req,res)=>{
+  Ticket.findByTiming(
+    req.params.timing,
+    (err,data)=>{
+      if (err) {
+        if (err.kind === "No Ticket") {
+          res.status(404).send({
+            message: 'No Ticket Found'
+          });
+        } else {
+          res.status(500).send({
+            message: "Error"
+          });
+        }
+      }
+      else{
+        res.send(data);
+      }
+  }
+  );
+};
+exports.delete = (req, res) => {
+  Ticket.remove(req.params.ticketid, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Ticket with id ${req.params.ticketid}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Could not delete Ticket with id " + req.params.ticketid
+        });
+      }
+    } else res.send({ message: `Ticket was deleted successfully!` });
+  });
+};

@@ -63,4 +63,40 @@ Ticket.updateById = (ticketid, timing, result) => {
     }
   );
 };
+Ticket.findByTiming=(timing,result)=>{
+  mysqlConnection.query("SELECT ticket_id,user_name,phone_no,expired FROM tikcetinfo WHERE timing = ?",timing,(err,res)=>{
+    if (err) {
+     console.log("error: ", err);
+     result(err, null);
+     return;
+   }
+   if (res.length) {
+
+         result(null,{Tickets:res});
+         return;
+       }
+       else {
+         result({ kind: "No Ticket" }, null);
+       }
+
+  })
+};
+Ticket.findByTicketid=(ticketid,result)=>{
+  mysqlConnection.query("SELECT * FROM tikcetinfo WHERE ticket_id = ?",ticketid,(err,res)=>{
+    if (err) {
+     console.log("error: ", err);
+     result(err, null);
+     return;
+   }
+   if (res.length) {
+
+         result(null, {userdetails:res});
+         return;
+       }
+       else {
+         result({ kind: "No Ticket" }, null);
+       }
+
+  })
+};
 module.exports = Ticket;
