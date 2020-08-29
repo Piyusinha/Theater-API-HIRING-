@@ -79,3 +79,24 @@ exports.delete = (req, res) => {
     } else res.send({ message: `Ticket was deleted successfully!` });
   });
 };
+exports.finduserDetails=(req,res)=>{
+  Ticket.findByTicketid(
+    req.params.ticketid,
+    (err,data)=>{
+      if (err) {
+        if (err.kind === "No Ticket") {
+          res.status(404).send({
+            message: 'No User Found'
+          });
+        } else {
+          res.status(500).send({
+            message: "Error"
+          });
+        }
+      }
+      else{
+        res.send(data);
+      }
+  }
+  );
+};

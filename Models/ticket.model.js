@@ -99,4 +99,22 @@ Ticket.findByTicketid=(ticketid,result)=>{
 
   })
 };
+Ticket.remove = (ticketid, result) => {
+  mysqlConnection.query("DELETE FROM tikcetinfo WHERE ticket_id = ?", ticketid, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    if (res.affectedRows == 0) {
+      // not Found Ticket With the id
+      result({ kind: "not_found" }, null);
+      return;
+    }
+
+    console.log("Deleted Ticket with id: ", ticketid);
+    result(null, res);
+  });
+};
 module.exports = Ticket;
