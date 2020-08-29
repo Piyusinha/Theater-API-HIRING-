@@ -1,8 +1,8 @@
 # Theater API
 ### Setup 
-Clone:git clone https://github.com/Piyusinha/Theater-API-HIRING-.git  
-Install All Dependency:npm install  
-Start Server: node index.js  
+####Clone:git clone https://github.com/Piyusinha/Theater-API-HIRING-.git  
+####Install All Dependency:npm install  
+####Start Server: node index.js  
 ### Endpoints
 
 | Methods|            Urls            |            Actions                   |
