@@ -3,4 +3,5 @@ module.exports = app => {
 
 
   app.post("/ticket", ticket.create);
+  app.put("/ticket/:ticketid/:newtiming", ticket.update);
   };

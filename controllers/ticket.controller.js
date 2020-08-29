@@ -24,3 +24,22 @@ exports.create = (req, res) => {
     else res.send(data);
   });
 };
+exports.update = (req, res) => {
+  Ticket.updateById(
+    req.params.ticketid,
+    req.params.newtiming,
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found Ticket with id ${req.params.ticketid}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating Ticket with id " + req.params.ticketid
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};

@@ -40,4 +40,27 @@ Ticket.create =(newTicket , result)=>{
     }
   })
 };
+Ticket.updateById = (ticketid, timing, result) => {
+  mysqlConnection.query(
+    "UPDATE tikcetinfo SET timing = ?  WHERE ticket_id = ?",
+    [timing, ticketid],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Ticket with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+
+      result(null, {Message:'Your ticket id '+ticketid+' timing is UPDATED',
+                    status:200});
+    }
+  );
+};
 module.exports = Ticket;
