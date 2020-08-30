@@ -5,7 +5,9 @@
 **Start Server**: node index.js  
 **Base URL:** http://54.237.104.99:443  
 **Working**  
-Ticket_id = phone_no+currenttimestampinmillis  
+Ticket_id = phone_no+currenttimestampinmillis.  
+Ticket Automatically deleted after 8hr.
+ 
 ### Endpoints
   
 | Methods|            Urls             |                  Actions              |           Body Format         |    Response Format            |             
