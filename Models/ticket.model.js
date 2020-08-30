@@ -200,20 +200,5 @@ Ticket.remove = (ticketid, result) => {
     result(null, res);
   });
 };
-Ticket.markTicketAsExpired=(result)=>{
-  mysqlConnection.query("SELECT * FROM tikcetinfo",(err,res)=>{
-    if(err)
-    {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
-    else{
-      for(var i=0;i<res.length;i++)
-      {
-        console.log(res[i].user_name);
-      }
-    }
-  });
-};
+
 module.exports = Ticket;
