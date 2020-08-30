@@ -1,4 +1,5 @@
 const mysqlConnection = require("./databaseConnection.js");
+
 const Ticket = function(ticket) {
 
   this.ticket_id = ticket.ticket_id;
@@ -136,6 +137,22 @@ Ticket.remove = (ticketid, result) => {
 
     console.log("Deleted Ticket with id: ", ticketid);
     result(null, res);
+  });
+};
+Ticket.markTicketAsExpired=(result)=>{
+  mysqlConnection.query("SELECT * FROM tikcetinfo",(err,res)=>{
+    if(err)
+    {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    else{
+      for(var i=0;i<res.length;i++)
+      {
+        console.log(res[i].user_name);
+      }
+    }
   });
 };
 module.exports = Ticket;

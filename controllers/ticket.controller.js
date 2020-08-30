@@ -100,3 +100,16 @@ exports.finduserDetails=(req,res)=>{
   }
   );
 };
+exports.markExpired=(req,res)=>{
+  Ticket.markTicketAsExpired((err,data)=>{
+    if (err) {
+      res.status(404).send({
+        message: 'Not Updated'
+      });
+      }
+      else{
+          res.send(data);
+      }
+
+  });
+};
