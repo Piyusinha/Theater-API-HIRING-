@@ -27,3 +27,6 @@
 |        |                             |                                       |                               |   "timing" :"dd/mm/yyyy hh:mm"|  
 |        |                             |                                       |                               |   "expired":boolean}          |
 |        |                             |                                       |                               |           }                   |
+### ScreenShots
+**Create New Ticket**
+https://user-images.githubusercontent.com/40850657/91655316-51375f00-eacd-11ea-8f99-61d4ffb165bd.png
