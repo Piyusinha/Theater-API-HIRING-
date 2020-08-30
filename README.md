@@ -4,7 +4,7 @@
 **Install All Dependency**:npm install  
 **Start Server**: node index.js  
 **Base URL:** http://54.237.104.99:443  
-**Working**
+**Working**  
 Ticket_id = phone_no+currenttimestampinmillis  
 ### Endpoints
   
@@ -40,5 +40,14 @@ Ticket_id = phone_no+currenttimestampinmillis
 ![Screenshot from 2020-08-30 14-44-05](https://user-images.githubusercontent.com/40850657/91655647-b7bd7c80-eacf-11ea-9d57-dc611fe5e493.png)
 **Delete Ticket**
 ![Screenshot from 2020-08-30 14-44-59](https://user-images.githubusercontent.com/40850657/91655653-c2781180-eacf-11ea-8eae-94b5886465d3.png)
+## Basic Test for Endpoints
+**Create,Update,Show**  
+**1.** Empty Payload  
+**2.** Blank Data  
+**3.** Invalid Data   
+**Delete,Get Ticket Info**
+**1.** Empty Parameters
+
+
 
 
