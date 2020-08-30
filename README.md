@@ -29,14 +29,14 @@
 |        |                             |                                       |                               |           }                   |
 ### ScreenShots
 **Create New Ticket**
-![Screenshot from 2020-08-30 14-24-48](https://user-images.githubusercontent.com/40850657/91655316-51375f00-eacd-11ea-8f99-61d4ffb165bd.png)
+![Screenshot from 2020-08-30 14-41-53](https://user-images.githubusercontent.com/40850657/91655623-85ac1a80-eacf-11ea-8a15-c5fdcb813a7b.png)
 **Update Ticket Timing**
-![Screenshot from 2020-08-30 14-26-33](https://user-images.githubusercontent.com/40850657/91655370-b723e680-eacd-11ea-91cd-ea9888674f11.png)
+![Screenshot from 2020-08-30 14-42-48](https://user-images.githubusercontent.com/40850657/91655632-96f52700-eacf-11ea-8383-6572f46f490c.png)
 **Show Tickets of partiular Time**
-![Screenshot from 2020-08-30 14-27-34](https://user-images.githubusercontent.com/40850657/91655391-dae72c80-eacd-11ea-9695-1cf8389be8e6.png)
+![Screenshot from 2020-08-30 14-43-26](https://user-images.githubusercontent.com/40850657/91655639-a2485280-eacf-11ea-8068-769daffb3701.png)
 **Show User Details of Particular Ticketid**
-![Screenshot from 2020-08-30 14-28-23](https://user-images.githubusercontent.com/40850657/91655426-079b4400-eace-11ea-867e-0d2d32a0c3c3.png)
+![Screenshot from 2020-08-30 14-44-05](https://user-images.githubusercontent.com/40850657/91655647-b7bd7c80-eacf-11ea-9d57-dc611fe5e493.png)
 **Delete Ticket**
-![Screenshot from 2020-08-30 14-28-41](https://user-images.githubusercontent.com/40850657/91655438-213c8b80-eace-11ea-8dec-71fb74c80d24.png)
+![Screenshot from 2020-08-30 14-44-59](https://user-images.githubusercontent.com/40850657/91655653-c2781180-eacf-11ea-8eae-94b5886465d3.png)
 
 
