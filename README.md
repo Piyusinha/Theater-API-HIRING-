@@ -45,7 +45,7 @@ Ticket_id = phone_no+currenttimestampinmillis
 **1.** Empty Payload  
 **2.** Blank Data  
 **3.** Invalid Data   
-**Delete,Get Ticket Info**
+**Delete,Get Ticket Info**  
 **1.** Empty Parameters
 
 
