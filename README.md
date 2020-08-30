@@ -37,6 +37,6 @@
 **Show User Details of Particular Ticketid**
 ![Screenshot from 2020-08-30 14-28-23](https://user-images.githubusercontent.com/40850657/91655426-079b4400-eace-11ea-867e-0d2d32a0c3c3.png)
 **Delete Ticket**
-[Screenshot from 2020-08-30 14-28-41](https://user-images.githubusercontent.com/40850657/91655438-213c8b80-eace-11ea-8dec-71fb74c80d24.png)
+![Screenshot from 2020-08-30 14-28-41](https://user-images.githubusercontent.com/40850657/91655438-213c8b80-eace-11ea-8dec-71fb74c80d24.png)
 
 
