@@ -26,17 +26,17 @@ exports.create = (req, res) => {
 };
 exports.update = (req, res) => {
   Ticket.updateById(
-    req.params.ticketid,
-    req.params.newtiming,
+    req.body.ticketid,
+    req.body.timing,
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Ticket with id ${req.params.ticketid}.`
+            message: `Not found Ticket with id ${req.body.ticketid}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Ticket with id " + req.params.ticketid
+            message: "Error updating Ticket with id " + req.body.ticketid
           });
         }
       } else res.send(data);
@@ -45,7 +45,7 @@ exports.update = (req, res) => {
 };
 exports.findAllTicket=(req,res)=>{
   Ticket.findByTiming(
-    req.params.timing,
+    req.body.timing,
     (err,data)=>{
       if (err) {
         if (err.kind === "No Ticket") {

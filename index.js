@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
   require("./routes/ticket.route.js")(app);
 
   app.listen(3000, () => console.log('API  is runnig at port no : 3000'));
-  function markTicketExpired() {
+function delteExpiredTicket() {
     var dt = new Date();
     var now=`${
     dt.getDate().toString().padStart(2, '0')}/${
@@ -45,23 +45,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
               expiredTicketid.push(res[i].ticket_id);
           }
         }
-        mysqlConnection.query("UPDATE tikcetinfo SET expired = ?  WHERE ticket_id IN (?)",[1,expiredTicketid],(err,res)=>{
+        if(expiredTicketid.length>0)
+        {
+        mysqlConnection.query("DELETE FROM tikcetinfo WHERE ticket_id IN (?)",[expiredTicketid],(err,res)=>{
           if(!err)
           {
-            console.log("Ticket Updated");
+            console.log("Expired Tikcet Deleted");
           }
           else{
+              console.log(err.message);
 
           }
 
         })
       }
+      }
     });
   }
 
-  cron.schedule('*/10 * * * * *', ()=> {
-     console.log('running a task every 5 seconds');
-     markTicketExpired();
+  cron.schedule('*/60 * * * * *', ()=> {
+     delteExpiredTicket();
   });
 
 
