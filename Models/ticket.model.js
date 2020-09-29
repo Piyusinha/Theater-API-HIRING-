@@ -8,6 +8,11 @@ const Ticket = function(ticket) {
   this.phone_no = ticket.phone_no;
   this.timing = ticket.timing
 };
+const Bulb = function(buld)
+{
+  this.bulb=bulb.buld,
+  this.id=bulb.id
+};
 
 Ticket.create =(newTicket , result)=>{
   const regex = /^([1-9]|([012][0-9])|(3[01]))\/([0]{0,1}[1-9]|1[012])\/\d\d\d\d\s([0-1]?[0-9]|2?[0-3]):([0-5]\d)$/g;
@@ -163,24 +168,24 @@ Ticket.findByTiming=(timing,result)=>{
   else{
     result(null,{Message:"Please Use timing format dd/mm/yyyy hh:mm",status:501});
   }
-};
-Ticket.findByTicketid=(ticketid,result)=>{
-  mysqlConnection.query("SELECT * FROM tikcetinfo WHERE ticket_id = ?",ticketid,(err,res)=>{
-    if (err) {
-     console.log("error: ", err);
-     result(err, null);
-     return;
-   }
-   if (res.length) {
+  Ticket.findByTicketid=(ticketid,result)=>{
+    mysqlConnection.query("SELECT * FROM tikcetinfo WHERE ticket_id = ?",ticketid,(err,res)=>{
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+        return;
+      }
+      if (res.length) {
 
-         result(null, {userdetails:res});
-         return;
-       }
-       else {
-         result({ kind: "No Ticket" }, null);
-       }
+        result(null, {userdetails:res});
+        return;
+      }
+      else {
+        result({ kind: "No Ticket" }, null);
+      }
 
-  })
+    })
+  };
 };
 Ticket.remove = (ticketid, result) => {
   mysqlConnection.query("DELETE FROM tikcetinfo WHERE ticket_id = ?", ticketid, (err, res) => {
@@ -200,5 +205,6 @@ Ticket.remove = (ticketid, result) => {
     result(null, res);
   });
 };
+
 
 module.exports = Ticket;
